@@ -17,6 +17,7 @@ const ImageGalleryItem = ({ items, showPicture }) => {
   ));
   return elements;
 };
+
 export default ImageGalleryItem;
 
 ImageGalleryItem.propTypes = {

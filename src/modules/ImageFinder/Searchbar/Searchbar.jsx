@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Formik, Form, Field } from 'formik';
+import Notiflix from 'notiflix';
 import css from './Searchbar.module.css';
 
 const Searchbar = ({ onSubmit }) => {
@@ -10,6 +11,8 @@ const Searchbar = ({ onSubmit }) => {
 
   const handleSubmit = ({ search }, { resetForm }) => {
     if (search.trim() === '') {
+      Notiflix.Notify.failure('Please enter a search');
+      resetForm();
       return;
     }
     onSubmit(search);
@@ -30,7 +33,6 @@ const Searchbar = ({ onSubmit }) => {
             autoComplete="off"
             autoFocus
             placeholder="Search images and photos"
-            required
           ></Field>
         </Form>
       </Formik>
